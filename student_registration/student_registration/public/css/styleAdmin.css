@@ -1,0 +1,466 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+.searchAll {
+
+    padding: 1rem;
+}
+
+.nav-li:hover {
+    background-color: #512E5F;
+
+}
+
+.nav-link.active {
+    margin-top: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.b-example-divider {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid rgba(0, 0, 0, 0.15);
+    border-width: 1px 0;
+    box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+        inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+}
+
+.b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+}
+
+.bi {
+    vertical-align: -0.125em;
+    fill: currentColor;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    cursor: pointer;
+}
+
+.form-label {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.form-select {
+    margin: .25rem;
+}
+
+.bd-mode-toggle {
+    z-index: 1500;
+}
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+}
+
+/* Show it is fixed to the top */
+body {
+    padding-top: 2rem;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1073%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(173%2c 149%2c 183%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c532.274C97.839%2c535.924%2c169.328%2c442.51%2c242.785%2c377.781C306.599%2c321.549%2c367.597%2c261.184%2c397.853%2c181.693C426.99%2c105.143%2c406.093%2c23.059%2c408.956%2c-58.799C412.553%2c-161.653%2c471.013%2c-273.688%2c416.84%2c-361.194C362.845%2c-448.412%2c243.27%2c-465.07%2c143.276%2c-487.955C48.091%2c-509.739%2c-49.657%2c-515.671%2c-143.726%2c-489.484C-238.683%2c-463.05%2c-327.755%2c-414.415%2c-391.368%2c-339.122C-454.546%2c-264.344%2c-491.507%2c-169.19%2c-496.918%2c-71.446C-502.078%2c21.763%2c-469.696%2c112.654%2c-420.778%2c192.163C-375.656%2c265.503%2c-298.384%2c305.961%2c-231.416%2c360.091C-155.094%2c421.781%2c-98.068%2c528.616%2c0%2c532.274' fill='%23745781'%3e%3c/path%3e%3cpath d='M1440 1237.298C1565.665 1215.362 1600.7069999999999 1045.723 1704.46 971.5070000000001 1800.329 902.931 1965.261 929.3820000000001 2017.9 823.918 2070.2039999999997 719.124 1982.708 598.501 1946.173 487.223 1915.747 394.552 1882.836 305.204 1822.4470000000001 228.608 1759.761 149.098 1691.194 63.57400000000001 1592.9279999999999 39.176000000000045 1495.738 15.044999999999959 1403.818 84.09300000000002 1304.969 100.12700000000001 1187.533 119.17599999999999 1053.38 71.31700000000001 957.825 142.19299999999998 859.517 215.111 822.419 347.575 807.561 469.069 792.885 589.079 821.412 709.655 875.186 817.942 927.795 923.8820000000001 1013.74 1004.988 1108.709 1075.499 1209.422 1150.275 1316.431 1258.868 1440 1237.298' fill='%23e3dae6'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1073'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+
+
+    min-height: 100vh;
+}
+
+/* ------------------------------------------- */
+
+/* General Styling */
+.navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    /* Adds spacing between elements */
+}
+
+.navbar-nav li {
+    margin: 0.5rem 0;
+    /* Ensures proper spacing between list items */
+}
+
+.nav-link {
+    pointer-events: auto !important;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+    }
+
+    .navbar-nav li {
+        width: 100%;
+
+    }
+
+    .form-control {
+        padding: 0.5rem 0.5rem;
+        width: 50%;
+    }
+
+    .btn {
+        width: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .form-control {
+        padding: 0.1;
+    }
+}
+
+
+
+/* --------------- */
+
+.select ul li.option {
+    background-color: #DEDEDE;
+    box-shadow: 0px 1px 0 #DEDEDE, 0px -1px 0 #DEDEDE;
+    -webkit-box-shadow: 0px 1px 0 #DEDEDE, 0px -1px 0 #DEDEDE;
+    -moz-box-shadow: 0px 1px 0 #DEDEDE, 0px -1px 0 #DEDEDE;
+}
+
+.select ul li.option:hover {
+    background-color: #B8B8B8;
+}
+
+.select ul li.option {
+    z-index: 1;
+    padding: 5px;
+    display: none;
+}
+
+.select ul li:first-child {
+    display: block;
+}
+
+.select ul li {
+    cursor: default;
+}
+
+.rarr:after,
+.darr:after {
+    content: ' ▼ ';
+    float: left;
+    padding: 0 5px;
+}
+
+/* -------------------- */
+/* #pagination {
+    padding-top: .6rem;
+    background-color: #ffffff;
+    border-radius: 40px;
+    box-shadow: 0px 0px 5px rgba(81, 46, 95,0.9);
+} */
+
+.custom-pagination .page-link {
+    color: #000;
+    background-color: #ffffff;
+    color: #512E5F;
+    /* color: rgb(223, 183, 34); */
+    border: none;
+    margin: 0px 5px;
+    padding: 8px 12px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: none;
+    font-weight: bold;
+}
+
+.custom-pagination .page-item.active .page-link {
+    background-color: #512E5F;
+    /* color: rgb(223, 183, 34); */
+    color: #ffffff;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.custom-pagination .page-item .page-link:hover {
+    background-color: #512E5F;
+    color: #ffffff;
+    /* color: rgb(223, 183, 34); */
+    cursor: pointer;
+    border-radius: 50%;
+    font-weight: bold;
+    transform: scale(1.2);
+}
+
+.custom-pagination .page-item.disabled .page-link {
+    color: #512E5F;
+    /* color: rgb(223, 183, 34); */
+    pointer-events: none;
+    font-weight: bold;
+}
+
+
+#logo {
+    height: 25px;
+    width: 45px;
+    border-radius: 5%;
+    overflow: hidden;
+    scale: 1.1;
+    object-fit: cover;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+
+
+
+#hoverName {
+    margin-top: 1rem;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bolder;
+
+    background: linear-gradient(90deg, #ffffff, #512E5F, #ffffff);
+
+    background-clip: text;
+    color: transparent;
+    background-size: 400% 400%;
+
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+}
+
+#hoverName::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    /* Adjusted to place underline below text */
+    height: 2px;
+    width: 100%;
+    background: #ffffff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+#hoverName:hover::after {
+    transform: scaleX(1);
+}
+
+
+
+.neon-heading {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: 0 0 10px #512E5F;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 0.5rem;
+    display: inline-block;
+}
+
+.neon-heading::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #512E5F;
+    box-shadow: 1px 0 8px #512E5F;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 37.5rem;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+}
+#table-responsive {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 37.5rem;
+    border-radius: 5px;
+    /* background-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2); */
+}
+
+ul.navbar-nav li {
+    margin-right: 1rem;
+}
+
+img {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 40%;
+    max-height: 90%;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.table-modern td {
+    font-size: small;
+}
+
+
+.table-modern {
+    width: 100%;
+    table-layout: auto;
+    /* Allows columns to adjust based on content */
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+.fixed-column {
+    position: sticky;
+    left: 0;
+    background: white;
+    z-index: 2;
+}
+
+.table-modern th,
+.table-modern td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table-modern th {
+    background-color: #ffffff;
+    font-weight: bold;
+}
+
+
+/* Ensures long content doesn't overflow */
+.table-modern td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-wrap: nowrap;
+    white-space: normal;
+    max-width: 250px;
+    /* Adjust as needed */
+    text-align: center;
+}
+
+
+
+
+/* Allow specific columns to expand as needed */
+.table-modern td:nth-child(5),
+/* Email */
+.table-modern td:nth-child(7),
+/* UID */
+.table-modern td:nth-child(9)
+
+/* Specialization */
+    {
+    max-width: 300px;
+    flex-wrap: nowrap;
+    white-space: normal;
+}
+
+/* Keep action buttons in a row */
+.table-modern td:last-child {
+    display: flex;
+    gap: 5px;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    vertical-align: middle;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: center;
+    flex-direction: row;
+}
+
+.table-modern td:last-child .btn {
+    flex: 1 1 auto;
+}
+
+/* Ensure images don't break layout */
+.table-modern img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+}

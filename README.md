@@ -31,3 +31,6 @@ Database: MySQL
 Frontend: HTML, CSS, Bootstrap (no JS)
 
 Tools: XAMPP, VS Code, Git
+
+
+To use this project, please make sure to create .env file. Format of .env file is given.

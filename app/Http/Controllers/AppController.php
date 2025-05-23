@@ -503,6 +503,118 @@ class AppController extends Controller
         $thirdCount = Gender::getGenderCount(3);
         return view("admin.adminBrowse", compact('title', 'maleCount', 'femaleCount', 'thirdCount'));
     }
+
+    // ------------------------------ Opening Admin Fees Payments Page -------------------------------------------------------------------------
+    public function openFeesPaymentsPanel(Request $request)
+    {
+
+        $title = "Fees Payments";
+        $perPage = $request->input('perPage', 5);
+        $query = DB::table('payment_table as pt')
+            ->join('students as s', 'pt.student_id', '=', 's.id')
+            ->join('fees_structure as fs', 'pt.fees_structure_id', '=', 'fs.id')
+            ->join('degrees as d', 's.degree_id_opt', '=', 'd.id')
+            ->join('specializations as sp', 's.specialization_id_opt', '=', 'sp.id')
+            ->join('semesters as sm', 's.semester_id', '=', 'sm.id')
+            ->join('academics as a', 's.academic_id', '=', 'a.id')
+            ->select(
+                's.id as student_id',
+                's.fname as fname',
+                's.lname as lname',
+                's.registration_no as registration_no',
+                'fs.id as fees_structure_id',
+                'fs.structure_name as fees_structure_name',
+                'pt.total_amount as total_amount',
+                'pt.payment_date as payment_date',
+                'pt.reciept_number as reciept_number'
+            )
+            ->orderBy('s.id');
+
+        if ($request->filled('specialization_id')) {
+            session()->flash('specialization_id', $request->specialization_id);
+            $query->where('s.specialization_id_opt', $request->specialization_id);
+        }
+
+        if ($request->filled('semester_id')) {
+            session()->flash('semester_id', $request->semester_id);
+            $query->where('s.semester_id', $request->semester_id);
+        }
+
+        if ($request->filled('academic_id')) {
+            session()->flash('academic_id', $request->academic_id);
+            $query->where('s.academic_id', $request->academic_id);
+        }
+
+        if ($request->filled('degree_id')) {
+            session()->flash('degree_id', $request->degree_id);
+            $query->where('s.degree_id_opt', $request->degree_id);
+        }
+
+        if ($request->filled('date_from') && $request->filled('date_to')) {
+
+            session()->flash('date_from', $request->date_from);
+            session()->flash('date_to', $request->date_to);
+            $query->whereBetween('pt.payment_date', [$request->date_from, $request->date_to]);
+        }
+        if ($request->filled('date_from')) {
+            $currentDate = date('Y-m-d');
+            session()->flash('date_from', $request->date_from);
+            $query->whereBetween('pt.payment_date', [$request->date_from, $currentDate]);
+        }
+
+        if ($request->filled('date_to')) {
+            $currentDate = date('Y-m-d');
+            session()->flash('date_to', $request->date_to);
+           $query->whereDate('pt.payment_date', '<=', $request->date_to);
+        }
+        if ($request->filled('search_term')) {
+            $searchTerm = $request->search_term;
+            session()->flash('search_term', $searchTerm);
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('s.degree_id_opt', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('s.specialization_id_opt', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('s.academic_id', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('s.semester_id', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('s.email', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('pt.total_amount', 'LIKE', '%' . $searchTerm . '%');
+            });
+        }
+        $fees = $query->paginate($perPage);
+        // dd($fees);
+        return view("admin.adminFeesPaymentPanel", compact('fees', 'title'));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // ------------------------------ opening form for adding new Fees structure -------------------------------------------------------------------------
     public function adminFeesOpenNewForm(Request $request)
     {
@@ -853,13 +965,13 @@ class AppController extends Controller
             Log::info("studentPayFeesSubmit Data: ", (array) $validatedData);
             $status = Fees::studentPayFeesSubmit($validatedData);
             if ($status) {
-                
+
                 return redirect()->route("student.fees.payment.open.page", ['success' => "Payment Successfull!", 'id' => $validatedData['student_id']]);
             }
             Log::info("In the studentPayFeesSubmit controller form: something went wrong");
             return redirect()->route("student.fees.payment.open.page", ['error' => "Something Went Wrong!", 'id' => $validatedData['student_id']]);
         } catch (ValidationException $e) {
-Log::info("In the studentPayFeesSubmit controller form: ValidationException");
+            Log::info("In the studentPayFeesSubmit controller form: ValidationException");
             return redirect()->route("student.fees.payment.open.page", ['error' => $e->getMessage(), 'id' => $validatedData['student_id']]);
         } catch (\Exception $e) {
             Log::info("In the studentPayFeesSubmit controller form: Exception");
@@ -874,9 +986,9 @@ Log::info("In the studentPayFeesSubmit controller form: ValidationException");
 
         try {
             // dd($request->all());
-            $student_id =(int) session('student_id');
+            $student_id = (int) session('student_id');
             Log::info("In the downloadFeesRecieptt controller form");
-            Log::info("In the downloadFeesRecieptt controller form student_id:",(array) $student_id);
+            Log::info("In the downloadFeesRecieptt controller form student_id:", (array) $student_id);
             $validatedData = $request->validate([
                 'fees_structure_id' => 'required|exists:payment_table,fees_structure_id',
                 'student_id' => 'required|exists:payment_table,student_id'
@@ -889,7 +1001,7 @@ Log::info("In the studentPayFeesSubmit controller form: ValidationException");
             $heads = $data['heads'];
             if ($fee && $heads) {
                 $title = "Download reciept";
-                return view('fees.fees_reciept', compact('title', 'fee','heads'));
+                return view('fees.fees_reciept', compact('title', 'fee', 'heads'));
             }
             Log::info("In the downloadFeesRecieptt controller form: something went wrong");
             return redirect()->route("student.fees.payment.open.page", ['error' => "Something Went Wrong!", 'id' => $student_id]);
@@ -903,6 +1015,37 @@ Log::info("In the studentPayFeesSubmit controller form: ValidationException");
         }
     }
 
+    // -------------------------------------    Downloading fees reciept by the student    -------------------------------------------------------------------
+
+    public function downloadFeesRecieptByAdmin(Request $request, $student_id, $fees_structure_id)
+    {
+
+        try {
+
+            $validatedData['fees_structure_id'] = $fees_structure_id;
+            $validatedData['student_id'] = $student_id;
+
+            Log::info("Validated data from the controller downloadFeesRecieptByAdmin: ", (array) $validatedData);
+            $data = Fees::downloadFeesReciept($validatedData);
+            // dd($data);
+            $fee = $data['fee'];
+            $heads = $data['heads'];
+            if ($fee && $heads) {
+                $title = "Download reciept";
+                return view('fees.fees_reciept', compact('title', 'fee', 'heads'));
+            }
+            Log::info("In the downloadFeesRecieptByAdmin controller form: something went wrong");
+            return redirect()->route("admin.fees.payments", ['error' => "Something Went Wrong!"]);
+        } catch (ValidationException $e) {
+            Log::info("In the downloadFeesRecieptByAdmin controller ValidationException ");
+            Log::error('Fees Print failed', ['error_message' => $e->getMessage()]);
+            return redirect()->route("admin.fees.paymentse", ['error' => $e->getMessage()]);
+        } catch (\Exception $e) {
+            Log::info("In the downloadFeesRecieptByAdmin controller Exception ");
+            Log::error('Fees Print failed', ['error_message' => $e->getMessage()]);
+            return redirect()->route("admin.fees.payments", ['error' => $e->getMessage()]);
+        }
+    }
 
 
     // ------------------------------------------ Opening the registration form by the student --------------------------------------------------------------

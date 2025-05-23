@@ -7,10 +7,10 @@ body {
 .main-container {
     padding: 0.3rem;
     background-color: #ffffff;
-    min-height: 80vh;
 
 }
-.card{
+
+.card {
     border-radius: 0px !important;
 }
 
@@ -22,8 +22,10 @@ body {
     background-color: #ffffff;
     font-weight: bold;
     font-size: large;
+
 }
-.title{
+
+.title {
     font-size: 3rem;
     display: inline;
     text-align: center;
@@ -32,22 +34,22 @@ body {
 }
 
 .card-body {
-    
     padding: 1rem;
     margin: 0.5rem;
-
     /* min-height: 70vh; */
-
 }
 
+
+/* 
+.card-main{
+overflow-x: scroll;
+} */
 
 
 .container-payment-list {
     background: #ffffff;
-    box-shadow: 0 0 20px rgba(81, 46, 95,0.2);
+    box-shadow: 0 0 20px rgba(81, 46, 95, 0.2);
     color: #000000;
-
-   
 
 }
 
@@ -57,7 +59,8 @@ body {
     backdrop-filter: blur(5px);
 
 }
-.row-head{
+
+.row-head {
     background-color: #512E5F;
     color: #ffffff;
 

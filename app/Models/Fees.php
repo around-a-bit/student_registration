@@ -522,7 +522,8 @@ class Fees extends Model
                             'fs.semester_id',
                             'sm.name as semester_name',
                             'fs.total_amount',
-                            'pt.id as payment_table_id'
+                            'pt.id as payment_table_id',
+                            'pt.payment_date as payment_date'
                         )->orderBy('sm.id')
                         ->get();
 
@@ -606,11 +607,12 @@ class Fees extends Model
         Log::info("Validated data: ", (array) $validatedData);
         $fee = DB::table('payment_table as pt')
             ->join('payment_details as pd', 'pt.id', '=', 'pd.payment_table_id')
+            ->join('fees_structure as fs', 'pt.fees_structure_id', '=', 'fs.id')
             ->join('students as s', 'pt.student_id', '=', 's.id')
             ->join('degrees as d', 's.degree_id_opt', '=', 'd.id')
             ->join('specializations as sp', 's.specialization_id_opt', '=', 'sp.id')
-            ->join('semesters as sm', 's.semester_id', '=', 'sm.id')
-            ->join('academics as a', 's.academic_id', '=', 'a.id')
+            ->join('semesters as sm', 'fs.semester_id', '=', 'sm.id')
+            ->join('academics as a', 'fs.academic_id', '=', 'a.id')
             ->select(
                 'pt.student_id as student_id',
                 'pt.id as payment_table_id',

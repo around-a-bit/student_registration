@@ -123,7 +123,7 @@
 
         <table class="table">
             <tr>
-                <td><strong>Receipt Date:</strong></td>
+                <td><strong>Payment Date:</strong></td>
                 <td>{{ \Carbon\Carbon::parse($fee->payment_date)->format('d/m/Y') }}</td>
             </tr>
             <tr>

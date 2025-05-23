@@ -127,6 +127,7 @@ Route::get('/adminlogin', [AppController::class, 'adminPage'])->name('admin.page
 Route::get('/admin', [AppController::class, 'adminPanel'])->name('admin.panel');
 Route::get('/adminFeesPanel', [AppController::class, 'adminFeesPanel'])->name('admin.fees.panel'); 
 Route::get('/adminBrowse', [AppController::class, 'adminBrowse'])->name('admin.browse');
+Route::get('/feesPayments', [AppController::class, 'openFeesPaymentsPanel'])->name('admin.fees.payments');
 
 
 // ---------------------------------------------------  Admin Fees Management   ---------------------------------------------------
@@ -144,8 +145,8 @@ Route::post('/adminPaymentScheduleFinalSubmit', [AppController::class, 'adminPay
 Route::get('/adminPaymentUpdateScheduleUpdateOpen/{fees_structure_id}', [AppController::class, 'adminPaymentScheduleOpenUpdateForm'])->name('admin.payment.schedule.update');
 Route::POST('/adminPaymentUpdateScheduleUpdate', [AppController::class, 'adminPaymentScheduleUpdateForm'])->name('admin.payment.schedule.update.submit');
 
-// ------------------------------------------------------------------------------------------------------
-
+// --------------------------------------------------- Admin Fees Reciepts Print---------------------------------------------------
+Route::get('/downloadFeesRecieptByAdmin/{student_id}/{fees_structure_id}', [AppController::class, 'downloadFeesRecieptByAdmin'])->name('admin.fees.print');
 
 // ------------------------------------------------ Admin Fees Head   ------------------------------------------------------
 Route::get('/adminHeadPanel', [AppController::class, 'showAdminHeadPanel'])->name('admin.head.panel');

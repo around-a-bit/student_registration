@@ -1,6 +1,9 @@
 @include('layouts.studentHeader')
 <main class="container p-3 mt-5 main-container">
     <div class="card">
+        <div class="card-main">
+
+        
         <div class="card-title">
             <div class="title">Fees Payment</div>
         </div>
@@ -10,12 +13,13 @@
                 <!-- Header Row -->
                 <div class="row row-head fw-bold border-bottom py-2">
                     <div class="col-md-1" style="text-align: center;">Semester</div>
-                    <div class="col-md-2" style="text-align: center;">Amount (₹)</div>
+                    <div class="col-md-1" style="text-align: center;">Amount (₹)</div>
                     <div class="col-md-1" style="text-align: center;">Late Fine (₹)</div>
                     <div class="col-md-2" style="text-align: center;">Total Amount (₹)</div>
                     <div class="col-md-2" style="text-align: center;">Start Date</div>
                     <div class="col-md-2" style="text-align: center;">End Date</div>
-                    <div class="col-md-2" style="text-align: center;">Status </div>
+                    <div class="col-md-1" style="text-align: center;">Status </div>
+                    <div class="col-md-2" style="text-align: center;">Date of Payment   (YYYY-MM-DD)</div>
                 </div>
                 <!-- Data Row -->
 
@@ -23,7 +27,7 @@
                 @foreach($fees_schedule as $fee)
                 <div class="row row-data py-2 border-bottom">
                     <div class="col-md-1" style="text-align: center;">{{$fee->semester_name ?? '--'}}</div>
-                    <div class="col-md-2" style="text-align: center;">{{$fee->total_amount ?? '--'}}</div>
+                    <div class="col-md-1" style="text-align: center;">{{$fee->total_amount ?? '--'}}</div>
 
 
                     @php
@@ -67,7 +71,7 @@
                     @endif
                     @if($fee->start_date <= now()->format('Y-m-d'))
                         @if(!$fee->payment_table_id)
-                        <div class="col-md-2" style="text-align: center;">
+                        <div class="col-md-1" style="text-align: center;">
                             <form action="{{ route('student.pay.fees.submit') }}" id="student-pay-{{$fee->fees_structure_id}}" method="POST">
                                 @method('POST')
                                 @csrf
@@ -89,7 +93,7 @@
 
                         </div>
                         @else
-                        <div class="col-md-2" style="text-align: center;">
+                        <div class="col-md-1" style="text-align: center;">
                             <button type="submit" class="btn btn-success"> Paid </button>
 
 
@@ -106,12 +110,15 @@
                                 <button type="submit" class="btn btn-primary btn-sm">Invoice</button>
                             </form>
                         </div>
+                        
                         @endif
+                        
                         @else
-                        <div class="col-md-2" style="text-align: center;">
+                        <div class="col-md-1" style="text-align: center;">
                             <button type="submit" class="btn btn-secondary" disabled> Pay </button>
                         </div>
                         @endif
+                        <div class="col-md-2" style="text-align: center;">{{ $fee->payment_date ?? '--'}}</div>
 
 
                 </div>
@@ -119,6 +126,7 @@
                 @endif
 
             </div>
+        </div>
         </div>
     </div>
 </main>

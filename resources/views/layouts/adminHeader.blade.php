@@ -26,6 +26,7 @@
                     <li class="nav-li"><a href="{{ route('admin.page') }}" class=" text-white"><i class="bi bi-house-door me-2"></i><span> Home</span></a></li><br>
                     <li class="nav-li"><a href="{{ route('admin.payment.panel') }}" class=" text-white"><i class="bi bi-calendar3"></i><span> Payment Schedule</span></a></li><br>
                     <li class="nav-li"><a href="{{ route('admin.panel')}}" class=" text-white"><i class="bi bi-table me-2"></i><span> Student Dashboard</span></a></li><br>
+                    <li class="nav-li"><a href="{{ route('admin.fees.payments') }}" class=" text-white"><i class="bi bi-map"></i><span> Fees Payments</span></a></li><br>
                     <li class="nav-li"><a href="{{ route('admin.browse') }}" class=" text-white"><i class="bi bi-map"></i><span> Browse</span></a></li><br>
                     <li class="nav-li"><a href="{{ route('admin.fees.panel') }}" class=" text-white"><i class="bi bi-arrow-up-right-circle"></i><span> Fees Management</span></a></li><br>
                     <li class="nav-li"><a href="{{ route('admin.head.panel') }}" class=" text-white"><i class="bi bi-grid me-2"></i><span> Fees Heads</span></a></li><br>

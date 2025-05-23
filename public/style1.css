@@ -1,0 +1,61 @@
+/* Add these CSS modifications */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 8px;
+    margin: -1rem; /* Compensate for container padding */
+    padding: 1rem;
+}
+
+.table-modern {
+    min-width: 1200px; /* Minimum width for the table */
+    width: 100%;
+    table-layout: fixed;
+}
+
+.table-modern th,
+.table-modern td {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.email-cell {
+    max-width: 250px !important;
+}
+
+@media (max-width: 768px) {
+    .table-wrapper {
+        margin: -0.5rem;
+        padding: 0.5rem;
+    }
+    
+    .table-modern {
+        min-width: 1100px;
+        font-size: 14px;
+    }
+    
+    .table-modern th,
+    .table-modern td {
+        padding: 0.8rem;
+        min-width: 120px;
+        max-width: 150px;
+    }
+    
+    .email-cell {
+        max-width: 200px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .table-modern {
+        min-width: 1000px;
+    }
+    
+    .table-modern th,
+    .table-modern td {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+        min-width: 100px;
+    }
+}

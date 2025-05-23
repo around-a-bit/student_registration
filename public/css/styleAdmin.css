@@ -1,0 +1,473 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+.searchAll {
+
+    padding: 1rem;
+}
+.nav-li a{
+    text-decoration: none;
+}
+.nav-li:hover {
+    background-color: #512E5F;
+
+}
+
+.nav-link.active {
+    margin-top: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.b-example-divider {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid rgba(0, 0, 0, 0.15);
+    border-width: 1px 0;
+    box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+        inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+}
+
+.b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+}
+
+.bi {
+    vertical-align: -0.125em;
+    fill: currentColor;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    cursor: pointer;
+}
+
+.form-label {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.form-select {
+    margin: .25rem;
+}
+
+.bd-mode-toggle {
+    z-index: 1500;
+}
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+}
+
+/* Show it is fixed to the top */
+body {
+    padding-top: 2rem;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+
+    min-height: 100vh;
+}
+
+/* ------------------------------------------- */
+
+/* General Styling */
+.navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    /* Adds spacing between elements */
+}
+
+.navbar-nav li {
+    margin: 0.5rem 0;
+    /* Ensures proper spacing between list items */
+}
+
+.nav-link {
+    pointer-events: auto !important;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+    }
+
+    .navbar-nav li {
+        width: 100%;
+
+    }
+
+    .form-control {
+        padding: 0.5rem 0.5rem;
+        width: 50%;
+    }
+
+    .btn {
+        width: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-nav {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .form-control {
+        padding: 0.1;
+    }
+}
+
+
+
+/* --------------- */
+
+.select ul li.option {
+    background-color: #DEDEDE;
+    box-shadow: 0px 1px 0 #DEDEDE, 0px -1px 0 #DEDEDE;
+    -webkit-box-shadow: 0px 1px 0 #DEDEDE, 0px -1px 0 #DEDEDE;
+    -moz-box-shadow: 0px 1px 0 #DEDEDE, 0px -1px 0 #DEDEDE;
+}
+
+.select ul li.option:hover {
+    background-color: #B8B8B8;
+}
+
+.select ul li.option {
+    z-index: 1;
+    padding: 5px;
+    display: none;
+}
+
+.select ul li:first-child {
+    display: block;
+}
+
+.select ul li {
+    cursor: default;
+}
+
+.rarr:after,
+.darr:after {
+    content: ' ▼ ';
+    float: left;
+    padding: 0 5px;
+}
+
+/* -------------------- */
+/* #pagination {
+    padding-top: .6rem;
+    background-color: #ffffff;
+    border-radius: 40px;
+    box-shadow: 0px 0px 5px rgba(81, 46, 95,0.9);
+} */
+
+.custom-pagination .page-link {
+    color: #000;
+    background-color: #ffffff;
+    color: #512E5F;
+    /* color: rgb(223, 183, 34); */
+    border: none;
+    margin: 0px 5px;
+    padding: 8px 12px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: none;
+    font-weight: bold;
+}
+
+.custom-pagination .page-item.active .page-link {
+    background-color: #512E5F;
+    /* color: rgb(223, 183, 34); */
+    color: #ffffff;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.custom-pagination .page-item .page-link:hover {
+    background-color: #512E5F;
+    color: #ffffff;
+    /* color: rgb(223, 183, 34); */
+    cursor: pointer;
+    border-radius: 50%;
+    font-weight: bold;
+    transform: scale(1.2);
+}
+
+.custom-pagination .page-item.disabled .page-link {
+    color: #512E5F;
+    /* color: rgb(223, 183, 34); */
+    pointer-events: none;
+    font-weight: bold;
+}
+
+
+#logo {
+    height: 25px;
+    width: 45px;
+    border-radius: 5%;
+    overflow: hidden;
+    scale: 1.1;
+    object-fit: cover;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+
+
+
+#hoverName {
+    margin-top: 1rem;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bolder;
+
+    background: linear-gradient(90deg, #ffffff, #512E5F, #ffffff);
+
+    background-clip: text;
+    color: transparent;
+    background-size: 400% 400%;
+
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+}
+
+#hoverName::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    /* Adjusted to place underline below text */
+    height: 2px;
+    width: 100%;
+    background: #ffffff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+#hoverName:hover::after {
+    transform: scaleX(1);
+}
+
+
+
+.neon-heading {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: 0 0 10px #512E5F;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 0.5rem;
+    display: inline-block;
+}
+.accordion-button:not(.collapsed) {
+    background-color: rgba(81, 46, 95,0.5);
+    color: #ffffff;
+}
+.neon-heading::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #512E5F;
+    box-shadow: 1px 0 8px #512E5F;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 37.5rem;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+}
+#table-responsive {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 37.5rem;
+    border-radius: 5px;
+    /* background-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2); */
+}
+
+ul.navbar-nav li {
+    margin-right: 1rem;
+}
+
+img {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 40%;
+    max-height: 90%;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.table-modern td {
+    font-size: small;
+}
+
+
+.table-modern {
+    width: 100%;
+    table-layout: auto;
+    /* Allows columns to adjust based on content */
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+.fixed-column {
+    position: sticky;
+    left: 0;
+    background: white;
+    z-index: 2;
+}
+
+.table-modern th,
+.table-modern td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* .table-modern th {
+    background-color: #ffffff;
+    font-weight: bold;
+} */
+.table-modern th {
+    background-color: rgba(143,159,194,0.9);
+    font-weight: bold;
+}
+
+/* Ensures long content doesn't overflow */
+.table-modern td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-wrap: nowrap;
+    white-space: normal;
+    max-width: 250px;
+    /* Adjust as needed */
+    text-align: center;
+}
+
+
+
+
+/* Allow specific columns to expand as needed */
+.table-modern td:nth-child(5),
+/* Email */
+.table-modern td:nth-child(7),
+/* UID */
+.table-modern td:nth-child(9)
+
+/* Specialization */
+    {
+    max-width: 300px;
+    flex-wrap: nowrap;
+    white-space: normal;
+}
+
+/* Keep action buttons in a row */
+/* .table-modern td:last-child {
+    display: flex;
+    gap: 5px;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    vertical-align: middle;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: center;
+    flex-direction: row;
+} */
+
+.table-modern td:last-child .btn {
+    flex: 1 1 auto;
+}
+
+/* Ensure images don't break layout */
+.table-modern img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+}

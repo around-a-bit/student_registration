@@ -4,48 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{$title}}</title>
+  @if(isset($title))
+  <title>{{ $title }}</title>
+  @elseif(request()->has('title'))
+  <title>{{ request('title') }}</title>
+  @else
+  <title>Default Title</title>
+  @endif
   <link rel="stylesheet" href="{{ asset('css/welcome_style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/googleapisFont.css') }}">
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('js/sweetAlert.js') }}"></script>
-  <script src="{{ asset('js/jquery.js') }}"></script>
 
-  <script>
-    let ch1 = "{{isset($error)}}";
-    console.log(ch1);
-let errorMessage = "{{ request('error') ?? '' }}";
-if(ch1){
-     errorMessage = "{{ isset($error) ? $error : null }}";  
-}
-console.log(errorMessage);
-
-let ch2 = "{{isset($success)}}";
-
-let successMessage = "{{ request('success') ?? '' }}";
-if(ch2){
-     successMessage = "{{ isset($success) ? $success : null }}";  
-}
-console.log(successMessage);
-
-let ch3 = "{{isset($delete_message)}}";
-
-let deleteMessage = "{{ request('delete_message') ?? '' }}";
-if(ch3){
-     successMessage = "{{ isset($delete_message) ? $success : null }}";  
-}
-console.log(deleteMessage);
-</script>
 
 </head>
 
 <body>
-  <!-- Randomly positioned animated nodes -->
-  <div class="node" style="top: 20%; left: 10%;"></div>
-  <div class="node" style="top: 40%; left: 80%;"></div>
-  <div class="node" style="top: 60%; left: 30%;"></div>
-  <div class="node" style="top: 80%; left: 60%;"></div>
+
 
   <div class="landing-page">
     <header>
@@ -125,6 +101,31 @@ console.log(deleteMessage);
     </div>
 
     <script src="{{ asset('js/alertMessages.js') }}"></script>
+  <script>
+    let ch1 = "{{isset($error)}}";
+    console.log(ch1);
+    let errorMessage = "{{ request('error') ?? '' }}";
+    if (ch1) {
+      errorMessage = "{{ isset($error) ? $error : null }}";
+    }
+    console.log(errorMessage);
+
+    let ch2 = "{{isset($success)}}";
+
+    let successMessage = "{{ request('success') ?? '' }}";
+    if (ch2) {
+      successMessage = "{{ isset($success) ? $success : null }}";
+    }
+    console.log(successMessage);
+
+    let ch3 = "{{isset($delete_message)}}";
+
+    let deleteMessage = "{{ request('delete_message') ?? '' }}";
+    if (ch3) {
+      successMessage = "{{ isset($delete_message) ? $success : null }}";
+    }
+    console.log(deleteMessage);
+  </script>
 
     @include('layouts.footer')
   </div>

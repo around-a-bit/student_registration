@@ -945,6 +945,7 @@ class AppController extends Controller
         Log::info("Student_id from the studentFeesPaymentPageOpen: ", (array) $student_id);
         $fees_schedule = Fees::getStudentPaymentDetails($student_id);
         $title = "Fees Payment";
+        // dd($fees_schedule);
         return view("student.feesPaymentPanel", compact('title', 'fees_schedule', 'student_id'));
     }
     // -------------------------------------    Submitting the Student Fees payment details by the student    -------------------------------------------------------------------

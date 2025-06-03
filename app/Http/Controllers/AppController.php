@@ -51,9 +51,17 @@ class AppController extends Controller
     public function emailVerificationPre(Request $request)
     {
         try {
+            // dd($request->all());
+            
             $validatedData = $request->validate([
-                'email' => 'required|email|unique:students,email'
-            ]);
+            'email' => 'required|email|unique:students,email',
+            '_token' => 'required'
+
+        ]);
+
+        // For debugging after validation
+        // dd($validatedData);
+
             $email = $validatedData['email'];
             $otp = rand(1000, 9999);
             $token = bin2hex(random_bytes(32));
@@ -71,14 +79,16 @@ class AppController extends Controller
 
             return redirect()->route('email.verification.post', ['token' => $token, 'title' => $title, 'success' => $success, 'email' => $email]);
         } catch (ValidationException $e) {
+            
             $error = $e->getMessage();
             $title = 'DCG';
-            return (view('registration.emailVerification', compact('title', 'error', 'email', 'token')));
+            return (view('registration.emailVerification', compact('title', 'error',)));
         } catch (\Exception $e) {
+            
             $error = $e->getMessage();
             Log::error('Registration failed', ['error_message' => $e->getMessage()]);
             $title = 'DCG';
-            return (view('registration.emailVerification', compact('title', 'error', 'email', 'token')));
+            return (view('registration.emailVerification', compact('title', 'error')));
         }
     }
 

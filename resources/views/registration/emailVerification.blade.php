@@ -29,7 +29,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label">We will send the verification code on your email id</label>
-                                <input type="email" name="email" class="form-control" required>
+                                <input type="email" name="email" id="email" class="form-control" required>
                             </div>
                             <button id="button" type="submit" class="btn btn-primary w-100">Continue</button>
                         </form>

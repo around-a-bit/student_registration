@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2025 at 06:52 AM
+-- Generation Time: Jun 03, 2025 at 06:52 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -294,7 +294,7 @@ INSERT INTO `fees_payment_schedule` (`id`, `fees_structure_id`, `start_date`, `e
 (12, 17, '2025-05-19', '2025-05-26', NULL, NULL, NULL, '2025-05-19 10:50:09', '2025-05-19 10:50:09'),
 (13, 21, '2025-05-20', '2025-05-27', NULL, NULL, NULL, '2025-05-20 06:31:10', '2025-05-20 06:31:10'),
 (14, 23, '2025-04-01', '2025-05-08', '2025-05-19', 10.00, NULL, '2025-05-20 06:37:16', '2025-05-20 06:37:16'),
-(15, 24, '2025-05-21', '2025-05-27', NULL, NULL, NULL, '2025-05-20 06:56:28', '2025-05-20 06:56:28'),
+(15, 24, '2025-05-21', '2025-05-25', NULL, 50.00, NULL, '2025-05-20 06:56:28', '2025-05-20 06:56:28'),
 (16, 25, '2025-05-21', '2025-05-28', NULL, NULL, NULL, '2025-05-20 06:56:42', '2025-05-20 06:56:42'),
 (17, 28, '2025-05-21', '2025-05-28', NULL, NULL, NULL, '2025-05-20 06:57:04', '2025-05-20 06:57:04'),
 (18, 26, '2025-05-21', '2025-05-28', NULL, NULL, NULL, '2025-05-20 06:57:24', '2025-05-20 06:57:24'),
@@ -600,7 +600,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `fname`, `lname`, `email`, `mobile`, `degree_id_opt`, `specialization_id_opt`, `semester_id`, `academic_id`, `signature`, `password`, `photo`, `registration_no`, `is_submitted`, `token`, `otp`, `otp_expires_at`, `created_at`, `updated_at`) VALUES
-(27, 'Sankar', 'Rajak', 'sankarrajak1223@gmail.com', '9330741654', 4, 1, 1, 1, 'TNU2021020100055-1747295700.png', '54c9d4680a678494b6e5547b8524fbef637e61425329ddfe2b1eeb93e410b128', 'TNU2021020100055-1747295700.png', 'DCG20250012', 1, 'dc501c106a84b63629f15edd830777352662ce30ca625c04db4886802eb1050e', '5598', NULL, NULL, '2025-05-15 02:25:01'),
+(27, 'Sankar', 'Rajak', 'sankarrajak1223@gmail.com', '9330741654', 4, 1, 1, 1, 'TNU2021020100055-1747295700.png', '54c9d4680a678494b6e5547b8524fbef637e61425329ddfe2b1eeb93e410b128', 'TNU2021020100055-1747295700.png', 'DCG20250000', 1, 'dc501c106a84b63629f15edd830777352662ce30ca625c04db4886802eb1050e', '5598', NULL, NULL, '2025-05-15 02:25:01'),
 (28, 'Soumik', 'De', 'soumik@gmail.com', '9330741601', NULL, NULL, NULL, NULL, 'TNU2021020100001-1743655331.png', '4322da71f8bc64a62f0f825d15d7c3dd7f99ef0a4a9c1bccd40f125d90383efd', 'TNU2021020100001-1743655331.png', 'DCG20250002', 1, '898c5d653bbb731c9c0f047414aedbe44de5249526d921f164214e8f92d67b87', '5923', NULL, NULL, '2025-04-02 23:12:11'),
 (29, 'Subhojit', 'Giri', 'subhojit@gmail.com', '9330741604', NULL, NULL, NULL, NULL, 'TNU2021020100004-1744103193.png', '6e56cd033844681e23c5953a9d2f4157bb1ee6644521b83b88471bf8caf36579', 'TNU2021020100004-1744103193.png', 'DCG20250003', 1, '63f6a204ef2b2e0791b9f96691eea3960b48657d5828dfd525d54f1ea72d5605', '3983', NULL, NULL, '2025-04-08 03:36:35'),
 (31, 'Biplab', 'Ghosh', 'biplab@gmail.com', '9330741605', NULL, NULL, NULL, NULL, 'TNU2021020100005-1744175267.png', 'fe98fadb86f7e057f21b3f3691b677df064430a3aa8859f5da9394087cb5a4f4', 'TNU2021020100005-1744175267.png', 'DCG20250004', 1, '0005cad5117c7fdd53916c8fa75232567d28f3e7a65296e94916b17ef174f2d4', '3265', NULL, NULL, '2025-04-08 23:37:47'),
@@ -612,7 +612,7 @@ INSERT INTO `students` (`id`, `fname`, `lname`, `email`, `mobile`, `degree_id_op
 (37, 'Pratik', 'Sapui', 'pratik@gmail.com', '9330741611', NULL, NULL, NULL, NULL, 'TNU2021020100011-1744176739.png', 'f14a4f65ff631143e95235f2ed89052a0e147dc7abdb4df861cdb0bdd869d415', 'TNU2021020100011-1744176739.png', 'DCG20250010', 1, 'f8c07d49bc5a0cbb2527ab34dac1898e43e629179bbad3cec0e9f6db878af09f', '8214', NULL, NULL, '2025-04-09 00:02:20'),
 (38, 'Srimanta', 'Maity', 'srimanta@gmail.com', '9330741612', NULL, NULL, NULL, NULL, NULL, 'cfa870cff989d96436184b55a38001e38e2946a20a0e8345b82a4ac621f2d6b8', NULL, NULL, 0, '342f5c9044c55a631be57f4a6d80e832fe681235d14956ff5d7a1ad3a2e219f3', '3033', NULL, NULL, '2025-04-09 05:01:02'),
 (39, 'Swagatam', 'Jana', 'swagatam@gmail.com', '9330741613', 4, 4, NULL, NULL, 'TNU2021020100013-1746787336.png', '95f04c20e72f3da5e7f00aeaf6dd0843c95893fe734e78a7565917b2e418e3dd', 'TNU2021020100013-1746787336.png', 'DCG20250011', 1, '8a4810491c368921dd51cfcea99f4b36f67ab0662d1415c1cfad4adf474b52e9', '3956', NULL, NULL, '2025-05-09 05:12:17'),
-(40, NULL, NULL, 'sankarrajak88765@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '2025-05-13 15:27:33', NULL, NULL, 0, '78af1c36ecb2c8c0c30105ad84fbfcab5149e34e5821fee5dbbca4eed385812e', '4045', NULL, NULL, NULL);
+(48, 'Sankar', 'Rajak', 'sankar.rajak@tnu.in', '9330741650', 4, 1, NULL, NULL, 'TNU2021020100000-1748849356.png', '54c9d4680a678494b6e5547b8524fbef637e61425329ddfe2b1eeb93e410b128', 'TNU2021020100000-1748849356.png', 'DCG20250012', 1, '399d6d296bbbd0c3051fe2774273a5133fae31e6615a8f9300c1eaa731d931c2', '1041', NULL, NULL, '2025-06-02 01:59:16');
 
 -- --------------------------------------------------------
 
@@ -648,7 +648,8 @@ INSERT INTO `student_address_details` (`id`, `student_id`, `country_id`, `state_
 (18, 36, 1, 2, 10, 'Kerala', '743130', NULL, '2025-04-08 23:57:10'),
 (19, 37, 1, 1, 3, 'Kharagpur', '743130', NULL, '2025-04-09 00:02:03'),
 (20, 38, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-09 05:01:02'),
-(21, 39, 1, 1, 2, 'Kolkata', '743100', NULL, '2025-05-09 04:42:43');
+(21, 39, 1, 1, 2, 'Kolkata', '743100', NULL, '2025-05-09 04:42:43'),
+(22, 48, 1, 1, 1, 'PURNANDAPALLY,DOGACHHIA(CT),NAIHATI.', '743130', NULL, '2025-06-02 01:55:11');
 
 -- --------------------------------------------------------
 
@@ -681,7 +682,8 @@ INSERT INTO `student_basic_details` (`id`, `student_id`, `gender_id`, `dob`, `cr
 (23, 36, 1, '2003-01-01', NULL, '2025-04-08 23:55:31'),
 (24, 37, 1, '2003-01-01', NULL, '2025-04-09 00:00:59'),
 (25, 38, NULL, NULL, NULL, '2025-04-09 05:01:02'),
-(26, 39, 1, '2003-01-01', NULL, '2025-05-09 04:42:43');
+(26, 39, 1, '2003-01-01', NULL, '2025-05-09 04:42:43'),
+(30, 48, 1, '2003-11-04', NULL, '2025-06-02 01:58:32');
 
 -- --------------------------------------------------------
 
@@ -692,16 +694,18 @@ INSERT INTO `student_basic_details` (`id`, `student_id`, `gender_id`, `dob`, `cr
 CREATE TABLE `student_course_details` (
   `id` bigint(20) NOT NULL,
   `student_id` bigint(20) UNSIGNED NOT NULL,
-  `degree_id` bigint(20) UNSIGNED NOT NULL,
-  `specialization_id` bigint(20) UNSIGNED NOT NULL
+  `degree_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `specialization_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `student_course_details`
 --
 
-INSERT INTO `student_course_details` (`id`, `student_id`, `degree_id`, `specialization_id`) VALUES
-(1, 39, 4, 1);
+INSERT INTO `student_course_details` (`id`, `student_id`, `degree_id`, `specialization_id`, `updated_at`) VALUES
+(1, 39, 4, 1, '2025-06-02 05:51:14'),
+(2, 48, NULL, NULL, '2025-06-02 00:22:44');
 
 -- --------------------------------------------------------
 
@@ -755,7 +759,10 @@ INSERT INTO `student_education_details` (`id`, `student_id`, `degree_id`, `speci
 (49, 37, 1, 1, 2, 'TNU2021020100011', '2025-04-09 00:01:46', '2025-04-09 00:01:46'),
 (50, 37, 3, 2, 2, 'HNU2021020100011', '2025-04-09 00:01:46', '2025-04-09 00:01:46'),
 (51, 37, 2, 2, 2, 'SNU2021020100011', '2025-04-09 00:01:46', '2025-04-09 00:01:46'),
-(52, 39, 1, 1, 1, 'TNU2021020100013', '2025-05-06 05:02:35', '2025-05-09 04:42:43');
+(52, 39, 1, 1, 1, 'TNU2021020100013', '2025-05-06 05:02:35', '2025-05-09 04:42:43'),
+(55, 48, 1, 1, 1, 'TNU2021020100000', '2025-06-02 01:54:51', '2025-06-02 01:54:51'),
+(56, 48, 3, 2, 1, 'HNU2021020100000', '2025-06-02 01:54:51', '2025-06-02 01:54:51'),
+(57, 48, 2, 2, 1, 'SNU2021020100000', '2025-06-02 01:54:51', '2025-06-02 01:54:51');
 
 --
 -- Indexes for dumped tables
@@ -1073,31 +1080,31 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `student_address_details`
 --
 ALTER TABLE `student_address_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `student_basic_details`
 --
 ALTER TABLE `student_basic_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `student_course_details`
 --
 ALTER TABLE `student_course_details`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_education_details`
 --
 ALTER TABLE `student_education_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- Constraints for dumped tables
